@@ -1,0 +1,63 @@
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
+
+/* CSS Custom Properties (Variables) */
+:root {
+    --accent: rgba(173, 216, 230, 1);
+    --cta: rgb(255, 136, 0);
+}
+
+/* Reset and body layout */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-weight: 300; /* Light 300 for rest */
+    font-family: 'Open Sans', sans-serif;
+    overflow: hidden; /* Prevent page scrolling */
+}
+
+/* Header styling */
+header {
+    background-color: var(--accent);
+    color: white;
+    padding: 1.25rem;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-weight: 400; /* Regular 400 for headlines */
+}
+
+/* Content section */
+#content {
+    padding: 1.25rem;
+    flex: 1;
+    overflow-y: auto; /* Make content scrollable */
+}
+
+/* Footer styling */
+footer {
+    background-color: var(--accent);
+    padding: 1.25rem;
+    text-align: center;
+}
+
+/* Button styling */
+footer button {
+    background-color: var(--cta);
+    color: white;
+    border: none;
+    padding: 0.625rem 1.25rem;
+    font-size: 1rem;
+    font-weight: 400; /* Regular 400 for buttons */
+    cursor: pointer;
+    border-radius: 0.625rem;
+}
+
