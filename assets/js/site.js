@@ -50,13 +50,64 @@ console.log('setupStatics called');
  // #endregion
 
 // #region callbacks
+
+function listClickCallback(action,index){
+    console.log('listClickCallback called with action:', action, 'index:', index);
+    activeList=index;
+    switch(action){
+        case 'showList':
+            listItemView();
+            break;
+        case 'editList':
+            newListCreationView();
+            break;      
+        case 'deleteList':
+            currentData.lists.splice(index,1);
+            saveData(currentData);
+            listView();
+            break;
+        default:
+            console.warn('Unknown action:', action);
+    }
+}
+
+
 //---------------------------------------------------------------------------------------------------------------------
 //- Callbacks with switch to handle different functions and appState
 //---------------------------------------------------------------------------------------------------------------------
 
-// Callback for creating a new list (model code) with switch and appState
-function newCallback(){}
+function itemClickCallback(action,index){
+    console.log('itemClickCallback called with action:', action, 'index:', index);  
+    switch(action){
+        case 'editItem':
+            newItemCreationView();
+            break;
+        case 'deleteItem':
+            currentData.lists[activeList].items.splice(index,1);
+            saveData(currentData);
+            listItemView();
+            break;
+        default:
+            console.warn('Unknown action:', action);
+    }
+}
 
+// Callback for creating a new list (model code) with switch and appState
+function newCallback(){
+    console.log('newCallback called, appState:', appState);
+    switch(appState){
+        case 'listView':
+            newListCreationView();
+            break;
+        case 'itemView':
+            newItemCreationView();
+            break;
+        default:
+            console.warn('Unknown appState:', appState);
+    }   
+}
+
+    
 //---------------------------------------------------------------------------------------------------------------------
 //---------------------------------------------------------------------------------------------------------------------
 // #endregion
